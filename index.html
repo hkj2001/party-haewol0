@@ -1,96 +1,373 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>파티해월 어르신 상차림 안내</title>
-  <meta name="description" content="파티해월 어르신 상차림 안내">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HAEWOL PARTY</title>
+  <meta name="description" content="해월의 밤, 함께하는 특별한 파티 초대장" />
   <style>
-    body{
-      font-family: system-ui,-apple-system,"Noto Sans KR",sans-serif;
-      margin:0;
-      padding:20px;
-      line-height:1.7;
-      background:#f6f6f6;
-      color:#111;
+    :root {
+      --bg: #0f172a;
+      --bg2: #111827;
+      --card: rgba(255,255,255,0.08);
+      --line: rgba(255,255,255,0.14);
+      --text: #f8fafc;
+      --muted: rgba(248,250,252,0.72);
+      --accent: #f59e0b;
+      --accent2: #fb7185;
+      --shadow: 0 20px 60px rgba(0,0,0,0.35);
+      --radius: 24px;
     }
-    h1{margin-bottom:16px}
-    h2{margin:28px 0 10px}
-    .price{font-weight:800}
-    .box{
-      background:#fff;
-      padding:20px;
-      margin-bottom:40px;
-      border-radius:12px;
-      box-shadow:0 2px 8px rgba(0,0,0,.06);
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans KR", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top, rgba(245,158,11,0.22), transparent 30%),
+        radial-gradient(circle at 80% 20%, rgba(251,113,133,0.18), transparent 25%),
+        linear-gradient(180deg, var(--bg), var(--bg2));
+      min-height: 100vh;
     }
-    img{
-      width:100%;
-      max-width:900px;
-      display:block;
-      margin:8px 0;
-      border-radius:10px;
+
+    a { color: inherit; text-decoration: none; }
+    .wrap { width: min(1120px, calc(100% - 32px)); margin: 0 auto; }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(14px);
+      background: rgba(15, 23, 42, 0.55);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 0;
+      gap: 16px;
+    }
+    .brand {
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-size: 14px;
+    }
+    .menu {
+      display: flex;
+      gap: 22px;
+      color: var(--muted);
+      font-size: 14px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .hero {
+      padding: 88px 0 56px;
+      display: grid;
+      grid-template-columns: 1.3fr 0.9fr;
+      gap: 28px;
+      align-items: center;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.05);
+      color: var(--muted);
+      font-size: 13px;
+    }
+    h1 {
+      margin: 18px 0 14px;
+      font-size: clamp(40px, 7vw, 76px);
+      line-height: 0.95;
+      letter-spacing: -0.04em;
+    }
+    .lead {
+      font-size: 18px;
+      line-height: 1.8;
+      color: var(--muted);
+      max-width: 640px;
+    }
+    .actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 28px;
+    }
+    .btn {
+      padding: 14px 20px;
+      border-radius: 999px;
+      font-weight: 700;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.06);
+    }
+    .btn.primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #111827;
+      border: none;
+    }
+
+    .poster {
+      background: linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0.05));
+      border: 1px solid var(--line);
+      border-radius: 32px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+      min-height: 420px;
+    }
+    .poster::before {
+      content: "";
+      position: absolute;
+      inset: -40% -20% auto auto;
+      width: 260px;
+      height: 260px;
+      background: radial-gradient(circle, rgba(245,158,11,0.45), transparent 70%);
+      filter: blur(10px);
+    }
+    .poster-badge {
+      display: inline-block;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 12px;
+      margin-bottom: 18px;
+    }
+    .poster h2 {
+      margin: 0;
+      font-size: 40px;
+      letter-spacing: -0.03em;
+    }
+    .poster p {
+      color: var(--muted);
+      line-height: 1.7;
+    }
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-top: 22px;
+    }
+    .info {
+      padding: 14px;
+      border-radius: 18px;
+      background: rgba(15,23,42,0.45);
+      border: 1px solid var(--line);
+    }
+    .info span { display:block; color: var(--muted); font-size: 12px; margin-bottom: 6px; }
+    .info strong { font-size: 15px; }
+
+    section { padding: 22px 0; }
+    .section-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: var(--shadow);
+    }
+    .section-title {
+      margin: 0 0 14px;
+      font-size: 28px;
+      letter-spacing: -0.03em;
+    }
+    .section-desc {
+      margin: 0 0 20px;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .grid3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .card {
+      padding: 20px;
+      border-radius: 20px;
+      background: rgba(15,23,42,0.45);
+      border: 1px solid var(--line);
+    }
+    .card h3 { margin: 0 0 10px; font-size: 18px; }
+    .card p, .card li { color: var(--muted); line-height: 1.7; }
+    ul { margin: 0; padding-left: 18px; }
+
+    .faq details {
+      padding: 18px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .faq summary {
+      cursor: pointer;
+      font-weight: 700;
+      list-style: none;
+    }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq p { margin: 10px 0 0; color: var(--muted); line-height: 1.7; }
+
+    footer {
+      padding: 40px 0 60px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 14px;
+    }
+
+    @media (max-width: 900px) {
+      .hero, .grid3 { grid-template-columns: 1fr; }
+      .poster { min-height: auto; }
     }
   </style>
 </head>
-
 <body>
+  <header>
+    <div class="wrap nav">
+      <div class="brand">HAEWOL PARTY</div>
+      <nav class="menu">
+        <a href="#about">소개</a>
+        <a href="#schedule">일정</a>
+        <a href="#place">장소</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+    </div>
+  </header>
 
-<h1>📌 파티해월 어르신 상차림 안내</h1>
+  <main class="wrap">
+    <section class="hero">
+      <div>
+        <div class="eyebrow">✨ 2026 HAEWOL SPECIAL NIGHT</div>
+        <h1>해월의 밤,<br />함께 빛나는 파티</h1>
+        <p class="lead">
+          음악, 분위기, 그리고 좋은 사람들. 해월 파티는 편안하면서도 특별한 밤을 위해 준비된 초대장입니다.
+          한 번의 방문으로도 기억에 남는 경험을 만들고 싶다면, 이 페이지를 기준으로 바로 시작할 수 있어요.
+        </p>
+        <div class="actions">
+          <a class="btn primary" href="#schedule">일정 보기</a>
+          <a class="btn" href="#place">장소 확인</a>
+        </div>
+      </div>
 
-<p>
-부모님 생신 · 칠순 · 팔순 · 구순 등<br>
-소중한 날을 정성껏 준비해 드리는<br>
-<b>파티해월 어르신 행사 상차림 안내 페이지</b>입니다.
-</p>
+      <div class="poster">
+        <div class="poster-badge">Invitation • Music • Night</div>
+        <h2>Party<br />Haewol</h2>
+        <p>
+          따뜻한 조명, 감각적인 사운드, 그리고 자연스럽게 이어지는 대화.
+          해월의 분위기를 담은 미니멀한 랜딩 페이지 스타일입니다.
+        </p>
+        <div class="info-grid">
+          <div class="info">
+            <span>DATE</span>
+            <strong>2026.04.18 SAT</strong>
+          </div>
+          <div class="info">
+            <span>TIME</span>
+            <strong>18:00 - 23:00</strong>
+          </div>
+          <div class="info">
+            <span>VENUE</span>
+            <strong>HAEWOL GARDEN</strong>
+          </div>
+          <div class="info">
+            <span>DRESS CODE</span>
+            <strong>Black & Gold</strong>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<div class="box">
-<h2>① 어르신 모형 현수막 상차림 <span class="price">35만원</span></h2>
-<img src="./1768900884519.jpg">
-<img src="./1768900884605.jpg">
-<img src="./1768900884626.jpg">
-<img src="./1768900890874.jpg">
-<img src="./1768900890798.jpg">
-<p>단정하고 편안한 분위기의 상차림으로 어르신 행사에서 가장 많이 선택됩니다.</p>
-</div>
+    <section id="about">
+      <div class="section-card">
+        <h2 class="section-title">소개</h2>
+        <p class="section-desc">
+          이 페이지는 행사 안내형 GitHub Pages 사이트에 적합하게 구성했습니다.
+          필요하면 초대 문구, 프로그램 정보, 예약 링크, 갤러리 섹션까지 쉽게 확장할 수 있습니다.
+        </p>
+        <div class="grid3">
+          <div class="card">
+            <h3>감성적인 비주얼</h3>
+            <p>그라데이션, 유리 느낌 카드, 섬세한 타이포그래피로 행사 분위기를 강조했습니다.</p>
+          </div>
+          <div class="card">
+            <h3>모바일 최적화</h3>
+            <p>반응형 레이아웃이라 스마트폰에서도 자연스럽게 보입니다.</p>
+          </div>
+          <div class="card">
+            <h3>바로 배포 가능</h3>
+            <p>정적 파일 하나로 시작할 수 있어 GitHub Pages에 올리기 쉽습니다.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<div class="box">
-<h2>② 에이프릴 병풍 상차림 <span class="price">40만원</span></h2>
-<img src="./1768904189988.jpg">
-<img src="./1768904190009.jpg">
-<img src="./1768904190027.jpg">
-<img src="./1768904190055.jpg">
-<img src="./1768904189949.jpg">
-<p>화사한 색감과 병풍 구성으로 사진 촬영 시 공간이 밝게 연출됩니다.</p>
-</div>
+    <section id="schedule">
+      <div class="section-card">
+        <h2 class="section-title">일정</h2>
+        <div class="grid3">
+          <div class="card">
+            <h3>18:00 입장</h3>
+            <p>웰컴 드링크와 함께 입장, 포토존 이용.</p>
+          </div>
+          <div class="card">
+            <h3>19:00 메인 프로그램</h3>
+            <p>DJ 세션, 공연, 이벤트 진행.</p>
+          </div>
+          <div class="card">
+            <h3>21:00 네트워킹</h3>
+            <p>자유롭게 대화하고 분위기를 즐기는 시간.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<div class="box">
-<h2>③ 노블래스 자개 병풍 상차림 (채아) <span class="price">45만원</span></h2>
-<img src="./1768904337001.jpg">
-<img src="./1768904337018.jpg">
-<img src="./1768904337033.jpg">
-<img src="./1768904336968.jpg">
-<p>자개 병풍 특유의 고급스러움으로 만족도가 높은 구성입니다.</p>
-</div>
+    <section id="place">
+      <div class="section-card">
+        <h2 class="section-title">장소</h2>
+        <p class="section-desc">장소명, 주소, 지도 링크를 실제 행사 정보로 교체해서 사용하세요.</p>
+        <div class="grid3">
+          <div class="card">
+            <h3>주소</h3>
+            <p>경기도 고양시 어딘가, 해월 이벤트 공간</p>
+          </div>
+          <div class="card">
+            <h3>주차</h3>
+            <p>현장 주차 가능 여부를 여기에 작성.</p>
+          </div>
+          <div class="card">
+            <h3>문의</h3>
+            <p>Instagram DM 또는 대표 연락처 추가 가능.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<div class="box">
-<h2>④ 노블래스 자개 병풍 상차림 (무아) <span class="price">45만원</span></h2>
-<img src="./1768904364344.jpg">
-<img src="./1768904364361.jpg">
-<img src="./1768904364380.jpg">
-<img src="./1768904364322.jpg">
-<p>차분하고 품격 있는 분위기로 공식 행사에 잘 어울립니다.</p>
-</div>
+    <section id="faq" class="faq">
+      <div class="section-card">
+        <h2 class="section-title">FAQ</h2>
+        <details>
+          <summary>복장 규정이 있나요?</summary>
+          <p>추천 드레스 코드는 Black & Gold이며, 편안하게 해석해도 좋습니다.</p>
+        </details>
+        <details>
+          <summary>초대장은 어떻게 받나요?</summary>
+          <p>참석 신청 폼이나 DM 신청 링크를 여기에 연결하면 됩니다.</p>
+        </details>
+        <details>
+          <summary>이 페이지를 수정하려면?</summary>
+          <p>텍스트, 색상, 섹션 순서를 바꾸면 바로 다른 분위기의 랜딩페이지가 됩니다.</p>
+        </details>
+      </div>
+    </section>
+  </main>
 
-<div class="box">
-<h2>📞 상담 안내</h2>
-<p>
-전화 : 010-2712-5378<br>
-카카오톡 : pinocc2<br>
-홈페이지 : <a href="http://www.partyheawol.com">www.partyheawol.com</a>
-</p>
-</div>
-
+  <footer>
+    © 2026 HAEWOL PARTY. Made for GitHub Pages.
+  </footer>
 </body>
 </html>

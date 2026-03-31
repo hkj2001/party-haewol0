@@ -3,745 +3,236 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>파티해월 | 출장 상차림</title>
-  <meta name="description" content="돌잔치 · 웨딩 · 어르신 잔치 출장 상차림. 전통상, 꽃상, 포토테이블, 포토존, 상담 안내." />
+  <title>파티해월 어르신 상차림 안내</title>
+  <meta name="description" content="파티해월 어르신 행사 상차림 안내 페이지" />
   <style>
-    :root{
-      --bg:#0b1020;
-      --bg2:#121a30;
-      --card:rgba(255,255,255,.07);
-      --line:rgba(255,255,255,.12);
-      --text:#f8fafc;
-      --muted:rgba(248,250,252,.72);
-      --accent:#f59e0b;
-      --accent2:#fb7185;
-      --shadow:0 20px 60px rgba(0,0,0,.35);
-      --radius:24px;
+    * {
+      box-sizing: border-box;
     }
 
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0;
-      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans KR",sans-serif;
-      color:var(--text);
-      background:
-        radial-gradient(circle at top, rgba(245,158,11,.18), transparent 28%),
-        radial-gradient(circle at 80% 20%, rgba(251,113,133,.16), transparent 24%),
-        linear-gradient(180deg, var(--bg), var(--bg2));
-      min-height:100vh;
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans KR", sans-serif;
+      background: #f4f4f4;
+      color: #111;
+      line-height: 1.6;
     }
 
-    a{text-decoration:none;color:inherit}
-    img{display:block;max-width:100%}
-
-    .wrap{
-      width:min(1180px, calc(100% - 32px));
-      margin:0 auto;
+    .wrap {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 24px 16px 40px;
     }
 
-    header{
-      position:sticky;
-      top:0;
-      z-index:50;
-      backdrop-filter:blur(14px);
-      background:rgba(11,16,32,.58);
-      border-bottom:1px solid var(--line);
+    .hero {
+      margin-bottom: 22px;
     }
 
-    .nav{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:16px;
-      padding:16px 0;
+    .hero h1 {
+      margin: 0 0 18px;
+      font-size: 32px;
+      line-height: 1.3;
+      font-weight: 800;
+      letter-spacing: -0.04em;
     }
 
-    .brand{
-      font-weight:800;
-      font-size:15px;
-      letter-spacing:.06em;
+    .hero p {
+      margin: 0;
+      font-size: 20px;
+      line-height: 1.75;
+      color: #333;
+      word-break: keep-all;
     }
 
-    .menu{
-      display:flex;
-      gap:16px;
-      flex-wrap:wrap;
-      justify-content:flex-end;
-      color:var(--muted);
-      font-size:14px;
+    .hero p strong {
+      color: #111;
+      font-weight: 800;
     }
 
-    .hero{
-      padding:74px 0 42px;
-      display:grid;
-      grid-template-columns:1.1fr .9fr;
-      gap:28px;
-      align-items:center;
+    .card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
     }
 
-    .eyebrow{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:10px 14px;
-      border-radius:999px;
-      background:rgba(255,255,255,.05);
-      border:1px solid var(--line);
-      color:var(--muted);
-      font-size:13px;
+    .card h2 {
+      margin: 0 0 18px;
+      font-size: 26px;
+      line-height: 1.45;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      word-break: keep-all;
     }
 
-    h1{
-      margin:18px 0 14px;
-      font-size:clamp(36px, 7vw, 68px);
-      line-height:.96;
-      letter-spacing:-.04em;
+    .gallery {
+      display: grid;
+      gap: 14px;
     }
 
-    .lead{
-      color:var(--muted);
-      line-height:1.8;
-      font-size:17px;
-      max-width:670px;
+    .gallery img {
+      width: 100%;
+      display: block;
+      border-radius: 14px;
+      background: #eee;
     }
 
-    .actions{
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
-      margin-top:24px;
+    .info-box {
+      margin-top: 22px;
+      background: #fafafa;
+      border: 1px solid #ececec;
+      border-radius: 16px;
+      padding: 16px;
     }
 
-    .btn{
-      padding:14px 20px;
-      border-radius:999px;
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.06);
-      color:var(--text);
-      font-weight:700;
-      cursor:pointer;
+    .info-box h3 {
+      margin: 0 0 10px;
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
     }
 
-    .btn.primary{
-      background:linear-gradient(135deg, var(--accent), var(--accent2));
-      color:#111827;
-      border:none;
+    .info-box ul {
+      margin: 0;
+      padding-left: 18px;
+      color: #444;
     }
 
-    .poster{
-      background:linear-gradient(180deg, rgba(255,255,255,.12), rgba(255,255,255,.05));
-      border:1px solid var(--line);
-      border-radius:30px;
-      padding:20px;
-      box-shadow:var(--shadow);
-      overflow:hidden;
-      position:relative;
+    .cta {
+      margin-top: 24px;
+      display: grid;
+      gap: 10px;
     }
 
-    .poster::before{
-      content:"";
-      position:absolute;
-      right:-40px;
-      top:-40px;
-      width:220px;
-      height:220px;
-      background:radial-gradient(circle, rgba(245,158,11,.32), transparent 72%);
-      filter:blur(8px);
+    .btn {
+      display: block;
+      width: 100%;
+      text-align: center;
+      text-decoration: none;
+      padding: 15px 16px;
+      border-radius: 14px;
+      font-weight: 800;
+      font-size: 16px;
     }
 
-    .poster-badge{
-      display:inline-block;
-      margin-bottom:16px;
-      padding:8px 12px;
-      border-radius:999px;
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.08);
-      color:var(--muted);
-      font-size:12px;
+    .btn.call {
+      background: #111;
+      color: #fff;
     }
 
-    .poster img{
-      width:100%;
-      height:500px;
-      object-fit:cover;
-      border-radius:22px;
-      border:1px solid var(--line);
+    .btn.kakao {
+      background: #fee500;
+      color: #111;
+      border: none;
     }
 
-    section{
-      padding:18px 0;
+    .notice {
+      margin-top: 24px;
+      font-size: 14px;
+      color: #666;
+      text-align: center;
+      line-height: 1.7;
     }
 
-    .section-card{
-      background:rgba(255,255,255,.05);
-      border:1px solid var(--line);
-      border-radius:var(--radius);
-      padding:28px;
-      box-shadow:var(--shadow);
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: 18px;
+      transform: translateX(-50%);
+      background: rgba(17,17,17,0.92);
+      color: #fff;
+      padding: 10px 14px;
+      border-radius: 10px;
+      font-size: 13px;
+      display: none;
+      z-index: 100;
     }
 
-    .section-title{
-      margin:0 0 12px;
-      font-size:28px;
-      letter-spacing:-.03em;
+    .toast.show {
+      display: block;
     }
 
-    .section-desc{
-      margin:0 0 18px;
-      color:var(--muted);
-      line-height:1.75;
-    }
-
-    .grid3{
-      display:grid;
-      grid-template-columns:repeat(3, 1fr);
-      gap:16px;
-    }
-
-    .grid2{
-      display:grid;
-      grid-template-columns:repeat(2, 1fr);
-      gap:16px;
-    }
-
-    .card{
-      padding:20px;
-      border-radius:20px;
-      background:rgba(15,23,42,.48);
-      border:1px solid var(--line);
-    }
-
-    .card h3{
-      margin:0 0 10px;
-      font-size:18px;
-    }
-
-    .card p, .card li{
-      color:var(--muted);
-      line-height:1.75;
-    }
-
-    ul{
-      margin:0;
-      padding-left:18px;
-    }
-
-    .price{
-      color:#ffd166;
-      font-weight:800;
-    }
-
-    .feature-image img{
-      width:100%;
-      height:360px;
-      object-fit:cover;
-      border-radius:20px;
-      border:1px solid var(--line);
-      background:#0f172a;
-    }
-
-    .table-wrap{
-      overflow-x:auto;
-    }
-
-    table{
-      width:100%;
-      min-width:720px;
-      border-collapse:collapse;
-    }
-
-    th,td{
-      text-align:left;
-      padding:14px 12px;
-      border-bottom:1px solid var(--line);
-      font-size:14px;
-    }
-
-    th{
-      color:var(--text);
-    }
-
-    td{
-      color:var(--muted);
-    }
-
-    .gallery{
-      display:grid;
-      grid-template-columns:repeat(4, 1fr);
-      gap:14px;
-    }
-
-    .gallery-item{
-      overflow:hidden;
-      border-radius:18px;
-      border:1px solid var(--line);
-      background:rgba(15,23,42,.5);
-      cursor:pointer;
-    }
-
-    .gallery-item img{
-      width:100%;
-      height:220px;
-      object-fit:cover;
-    }
-
-    .gallery-item .cap{
-      padding:10px 12px;
-      font-size:13px;
-      color:var(--muted);
-    }
-
-    .faq details{
-      padding:16px 0;
-      border-bottom:1px solid var(--line);
-    }
-
-    .faq summary{
-      cursor:pointer;
-      font-weight:700;
-      list-style:none;
-    }
-
-    .faq summary::-webkit-details-marker{display:none}
-    .faq p{
-      margin:10px 0 0;
-      color:var(--muted);
-      line-height:1.75;
-    }
-
-    .contact-grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:16px;
-    }
-
-    .floating{
-      position:fixed;
-      right:16px;
-      bottom:16px;
-      display:flex;
-      flex-direction:column;
-      gap:10px;
-      z-index:99;
-    }
-
-    .fab{
-      padding:12px 16px;
-      border-radius:999px;
-      border:1px solid var(--line);
-      background:rgba(11,16,32,.85);
-      color:var(--text);
-      box-shadow:var(--shadow);
-      font-weight:700;
-      cursor:pointer;
-    }
-
-    .fab.primary{
-      background:linear-gradient(135deg, var(--accent), var(--accent2));
-      color:#111827;
-      border:none;
-    }
-
-    .toast{
-      position:fixed;
-      left:50%;
-      bottom:20px;
-      transform:translateX(-50%);
-      background:rgba(11,16,32,.95);
-      border:1px solid var(--line);
-      color:var(--text);
-      padding:10px 14px;
-      border-radius:12px;
-      font-size:13px;
-      display:none;
-      z-index:120;
-    }
-
-    .toast.show{display:block}
-
-    .modal{
-      position:fixed;
-      inset:0;
-      background:rgba(0,0,0,.72);
-      display:none;
-      place-items:center;
-      padding:18px;
-      z-index:130;
-    }
-
-    .modal.open{display:grid}
-
-    .modal-card{
-      width:min(980px, 100%);
-      background:#0f172a;
-      border:1px solid var(--line);
-      border-radius:24px;
-      overflow:hidden;
-      box-shadow:var(--shadow);
-    }
-
-    .modal-top{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      padding:12px 14px;
-      border-bottom:1px solid var(--line);
-      color:var(--muted);
-      font-size:13px;
-    }
-
-    .modal-close{
-      border:none;
-      background:rgba(255,255,255,.08);
-      color:var(--text);
-      border-radius:10px;
-      padding:10px 12px;
-      cursor:pointer;
-    }
-
-    .modal img{
-      width:100%;
-      max-height:78vh;
-      object-fit:contain;
-      background:#0b1020;
-    }
-
-    footer{
-      padding:40px 0 60px;
-      color:var(--muted);
-      text-align:center;
-      font-size:14px;
-    }
-
-    @media (max-width: 960px){
-      .hero,.grid3,.grid2,.gallery,.contact-grid{
-        grid-template-columns:1fr;
+    @media (max-width: 480px) {
+      .wrap {
+        padding: 20px 14px 36px;
       }
-      .menu{display:none}
-      .poster img{height:360px}
-      .gallery-item img{height:240px}
+
+      .hero h1 {
+        font-size: 26px;
+      }
+
+      .hero p {
+        font-size: 17px;
+      }
+
+      .card h2 {
+        font-size: 22px;
+      }
     }
   </style>
 </head>
 <body>
-  <header>
-    <div class="wrap nav">
-      <div class="brand">파티해월 | 출장 상차림</div>
-      <nav class="menu">
-        <a href="#about">소개</a>
-        <a href="#trad">전통상</a>
-        <a href="#flower">꽃상</a>
-        <a href="#photo">포토</a>
-        <a href="#gallery">갤러리</a>
-        <a href="#price">가격</a>
-        <a href="#contact">상담</a>
-      </nav>
-    </div>
-  </header>
-
-  <main class="wrap">
+  <div class="wrap">
     <section class="hero">
-      <div>
-        <div class="eyebrow">✨ 돌잔치 · 웨딩 · 어르신 잔치 맞춤 상차림</div>
-        <h1>고급스럽게,<br>기억에 남게<br>파티해월</h1>
-        <p class="lead">
-          파티해월은 전통상, 꽃상, 포토테이블, 포토존까지 행사 분위기를 한 번에 완성하는 출장 상차림입니다.
-          돌잔치 · 웨딩 · 어르신 잔치에 맞게 스타일과 분위기를 조정하며, 상담 후 행사에 가장 잘 어울리는 구성으로 안내해드립니다.
-        </p>
-        <div class="actions">
-          <a class="btn primary" href="tel:01027125378">📞 전화 상담</a>
-          <button class="btn" type="button" onclick="openKakao()">💬 카톡 문의</button>
-          <a class="btn" href="#gallery">🖼️ 사진 보기</a>
-        </div>
+      <h1>📌 파티해월 어르신 상차림 안내</h1>
+      <p>
+        부모님 생신 · 칠순 · 팔순 · 구순 등<br>
+        소중한 날을 정성껏 준비해 드리는<br>
+        <strong>파티해월 어르신 행사 상차림 안내 페이지입니다.</strong>
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>① 어르신 모형 현수막 상차림 35만원</h2>
+
+      <div class="gallery">
+        <img src="1768900884519.jpg" alt="어르신 상차림 사진 1">
+        <img src="1768900884605.jpg" alt="어르신 상차림 사진 2">
+        <img src="1768900884626.jpg" alt="어르신 상차림 사진 3">
+        <img src="1768900890798.jpg" alt="어르신 상차림 사진 4">
+        <img src="1768900890874.jpg" alt="어르신 상차림 사진 5">
+        <img src="1768904189949.jpg" alt="어르신 상차림 사진 6">
+        <img src="1768904189988.jpg" alt="어르신 상차림 사진 7">
+        <img src="1768904190009.jpg" alt="어르신 상차림 사진 8">
+        <img src="1768904190027.jpg" alt="어르신 상차림 사진 9">
+        <img src="1768904190055.jpg" alt="어르신 상차림 사진 10">
+        <img src="1768904336968.jpg" alt="어르신 상차림 사진 11">
+        <img src="1768904337001.jpg" alt="어르신 상차림 사진 12">
+        <img src="1768904337018.jpg" alt="어르신 상차림 사진 13">
+        <img src="1768904337033.jpg" alt="어르신 상차림 사진 14">
+        <img src="1768904364322.jpg" alt="어르신 상차림 사진 15">
+        <img src="1768904364344.jpg" alt="어르신 상차림 사진 16">
+        <img src="1768904364361.jpg" alt="어르신 상차림 사진 17">
+        <img src="1768904364380.jpg" alt="어르신 상차림 사진 18">
       </div>
 
-      <div class="poster">
-        <div class="poster-badge">Party Haewol • Premium Styling</div>
-        <img src="1768900884605.jpg" alt="파티해월 대표 이미지">
+      <div class="info-box">
+        <h3>안내</h3>
+        <ul>
+          <li>부모님 생신 · 칠순 · 팔순 · 구순 행사에 어울리는 상차림입니다.</li>
+          <li>현수막 디자인과 전체 분위기는 행사 성격에 맞게 조율 가능합니다.</li>
+          <li>지역, 일정, 원하시는 분위기에 따라 자세한 상담 후 진행됩니다.</li>
+        </ul>
+      </div>
+
+      <div class="cta">
+        <a class="btn call" href="tel:01027125378">📞 전화 상담 010-2712-5378</a>
+        <button class="btn kakao" type="button" onclick="openKakao()">💬 카카오톡 문의 (ID: pinocc2)</button>
       </div>
     </section>
 
-    <section id="about">
-      <div class="section-card">
-        <h2 class="section-title">파티해월 소개</h2>
-        <p class="section-desc">
-          모든 상차림은 돌잔치 · 웨딩 · 어르신 잔치로 변형 가능합니다.
-          기본 포함 항목은 입구 장식, 게스트테이블 조화 장식, 간단 돌잡이 진행이며,
-          계절에 따라 동일 꽃 사용은 어려울 수 있으나 전체 톤과 색상은 맞춤 가능합니다.
-        </p>
-        <div class="grid3">
-          <div class="card">
-            <h3>전통미와 품격</h3>
-            <p>전통 병풍상부터 분위기 있는 세팅까지, 행사 사진이 고급스럽게 남는 스타일을 추구합니다.</p>
-          </div>
-          <div class="card">
-            <h3>맞춤형 연출</h3>
-            <p>행사 종류, 공간, 연령대 분위기에 맞춰 무리 없는 범위에서 디자인 요청을 반영합니다.</p>
-          </div>
-          <div class="card">
-            <h3>실전형 상담</h3>
-            <p>예쁘기만 한 구성이 아니라 실제 예약과 진행까지 연결되도록 빠르게 상담 안내합니다.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="trad">
-      <div class="section-card">
-        <h2 class="section-title">전통 상차림</h2>
-        <p class="section-desc">떡·과일 모형 / 조화 세팅 기준 · 생화 추가 가능</p>
-
-        <div class="grid2">
-          <div class="feature-image"><img src="1768900884626.jpg" alt="전통상 사진 1"></div>
-          <div class="feature-image"><img src="1768900890798.jpg" alt="전통상 사진 2"></div>
-        </div>
-
-        <div class="grid3" style="margin-top:16px;">
-          <div class="card">
-            <h3>채아·무아 자개병풍상</h3>
-            <ul>
-              <li>1800: <span class="price">45만원</span></li>
-              <li>2400: <span class="price">55만원</span></li>
-            </ul>
-          </div>
-          <div class="card">
-            <h3>프리미엄 전통상</h3>
-            <ul>
-              <li>수아 적색 일월오봉 2400: <span class="price">68만원</span></li>
-              <li>해주 일월오봉도 2400: <span class="price">63만원</span></li>
-              <li>홍자개 화조도 2400: <span class="price">58만원</span></li>
-            </ul>
-          </div>
-          <div class="card">
-            <h3>추가 전통상</h3>
-            <ul>
-              <li>우아 / 연아 책거리상 2400: <span class="price">58만원</span></li>
-              <li>단아 / 화려 / 은은 2400: <span class="price">55만원</span></li>
-              <li>다연 병풍상 2400: <span class="price">49만원</span></li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="card" style="margin-top:16px;">
-          <h3>전통상 생화 추가</h3>
-          <p>
-            기본 <span class="price">30만원부터</span> (양쪽 항아리 2개 기준),
-            센터피스 추가 시 <span class="price">+10만원</span>이며 추가 양에 따라 금액이 변동될 수 있습니다.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section id="flower">
-      <div class="section-card">
-        <h2 class="section-title">꽃상</h2>
-        <p class="section-desc">조화 꽃상 / 생화 꽃상 선택 가능</p>
-
-        <div class="grid2">
-          <div class="feature-image"><img src="1768900890874.jpg" alt="꽃상 사진 1"></div>
-          <div class="feature-image"><img src="1768904189949.jpg" alt="꽃상 사진 2"></div>
-        </div>
-
-        <div class="grid3" style="margin-top:16px;">
-          <div class="card">
-            <h3>조화 꽃상</h3>
-            <ul>
-              <li>1800: <span class="price">35만원</span></li>
-              <li>2400: <span class="price">45만원</span></li>
-              <li>3600: <span class="price">60만원</span></li>
-              <li>입구장식 포함</li>
-              <li>게스트테이블 조화 화병 8개 포함</li>
-            </ul>
-          </div>
-          <div class="card">
-            <h3>생화 꽃상</h3>
-            <ul>
-              <li>1800: <span class="price">68만원</span></li>
-              <li>센터피스·화병 포함 시: <span class="price">78만원</span></li>
-              <li>2400: <span class="price">98만원</span></li>
-              <li>3600: <span class="price">150만원</span></li>
-            </ul>
-          </div>
-          <div class="card">
-            <h3>포함 구성</h3>
-            <ul>
-              <li>게스트테이블 8개 화병</li>
-              <li>입구장식</li>
-              <li>헬륨풍선 6개</li>
-              <li>꽃 포장</li>
-              <li>사이즈 업 / 생화 양 추가 시 별도 문의</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="photo">
-      <div class="section-card">
-        <h2 class="section-title">포토테이블 / 포토존</h2>
-        <p class="section-desc">행사 사진 퀄리티를 올려주는 핵심 구성</p>
-
-        <div class="grid2">
-          <div class="feature-image"><img src="1768904189988.jpg" alt="포토존 사진 1"></div>
-          <div class="feature-image"><img src="1768904190009.jpg" alt="포토존 사진 2"></div>
-        </div>
-
-        <div class="grid3" style="margin-top:16px;">
-          <div class="card">
-            <h3>미니 포토테이블</h3>
-            <p><span class="price">10만원</span></p>
-          </div>
-          <div class="card">
-            <h3>전통·현대 포토테이블</h3>
-            <p><span class="price">20만원</span> / 생화 추가 <span class="price">+10만원</span></p>
-          </div>
-          <div class="card">
-            <h3>포토존</h3>
-            <p><span class="price">40만원</span> / 생화 추가 금액 별도</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="gallery">
-      <div class="section-card">
-        <h2 class="section-title">사진 갤러리</h2>
-        <p class="section-desc">이미지를 누르면 크게 볼 수 있습니다.</p>
-
-        <div class="gallery">
-          <div class="gallery-item" onclick="openModal('1768900884519.jpg')"><img src="1768900884519.jpg" alt=""><div class="cap">갤러리 1</div></div>
-          <div class="gallery-item" onclick="openModal('1768900884605.jpg')"><img src="1768900884605.jpg" alt=""><div class="cap">갤러리 2</div></div>
-          <div class="gallery-item" onclick="openModal('1768900884626.jpg')"><img src="1768900884626.jpg" alt=""><div class="cap">갤러리 3</div></div>
-          <div class="gallery-item" onclick="openModal('1768900890798.jpg')"><img src="1768900890798.jpg" alt=""><div class="cap">갤러리 4</div></div>
-          <div class="gallery-item" onclick="openModal('1768900890874.jpg')"><img src="1768900890874.jpg" alt=""><div class="cap">갤러리 5</div></div>
-          <div class="gallery-item" onclick="openModal('1768904189949.jpg')"><img src="1768904189949.jpg" alt=""><div class="cap">갤러리 6</div></div>
-          <div class="gallery-item" onclick="openModal('1768904189988.jpg')"><img src="1768904189988.jpg" alt=""><div class="cap">갤러리 7</div></div>
-          <div class="gallery-item" onclick="openModal('1768904190009.jpg')"><img src="1768904190009.jpg" alt=""><div class="cap">갤러리 8</div></div>
-          <div class="gallery-item" onclick="openModal('1768904190027.jpg')"><img src="1768904190027.jpg" alt=""><div class="cap">갤러리 9</div></div>
-          <div class="gallery-item" onclick="openModal('1768904190055.jpg')"><img src="1768904190055.jpg" alt=""><div class="cap">갤러리 10</div></div>
-          <div class="gallery-item" onclick="openModal('1768904336968.jpg')"><img src="1768904336968.jpg" alt=""><div class="cap">갤러리 11</div></div>
-          <div class="gallery-item" onclick="openModal('1768904337001.jpg')"><img src="1768904337001.jpg" alt=""><div class="cap">갤러리 12</div></div>
-          <div class="gallery-item" onclick="openModal('1768904337018.jpg')"><img src="1768904337018.jpg" alt=""><div class="cap">갤러리 13</div></div>
-          <div class="gallery-item" onclick="openModal('1768904337033.jpg')"><img src="1768904337033.jpg" alt=""><div class="cap">갤러리 14</div></div>
-          <div class="gallery-item" onclick="openModal('1768904364322.jpg')"><img src="1768904364322.jpg" alt=""><div class="cap">갤러리 15</div></div>
-          <div class="gallery-item" onclick="openModal('1768904364344.jpg')"><img src="1768904364344.jpg" alt=""><div class="cap">갤러리 16</div></div>
-          <div class="gallery-item" onclick="openModal('1768904364361.jpg')"><img src="1768904364361.jpg" alt=""><div class="cap">갤러리 17</div></div>
-          <div class="gallery-item" onclick="openModal('1768904364380.jpg')"><img src="1768904364380.jpg" alt=""><div class="cap">갤러리 18</div></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="price">
-      <div class="section-card">
-        <h2 class="section-title">가격 요약표</h2>
-        <p class="section-desc">빠르게 비교하고 상담하기 쉬운 요약표</p>
-
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr>
-                <th>구분</th>
-                <th>내용</th>
-                <th>가격</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr><td>전통상</td><td>자개병풍상 1800</td><td><span class="price">45만원</span></td></tr>
-              <tr><td>전통상</td><td>자개병풍상 2400</td><td><span class="price">55만원</span></td></tr>
-              <tr><td>전통상</td><td>프리미엄 병풍상(2400)</td><td><span class="price">49~68만원</span></td></tr>
-              <tr><td>조화 꽃상</td><td>1800 / 2400 / 3600</td><td><span class="price">35 / 45 / 60만원</span></td></tr>
-              <tr><td>생화 꽃상</td><td>1800 / 2400 / 3600</td><td><span class="price">68 / 98 / 150만원</span></td></tr>
-              <tr><td>포토</td><td>미니 / 전통·현대 / 포토존</td><td><span class="price">10 / 20 / 40만원</span></td></tr>
-              <tr><td>옵션</td><td>떡·과일 실물 추가</td><td><span class="price">+15만원</span></td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
-
-    <section id="faq" class="faq">
-      <div class="section-card">
-        <h2 class="section-title">안내 사항</h2>
-
-        <details open>
-          <summary>꽃은 사진과 동일하게 가능한가요?</summary>
-          <p>계절에 따라 동일 꽃 사용은 어려울 수 있으나, 전체 톤과 색상은 최대한 맞춰드립니다.</p>
-        </details>
-
-        <details>
-          <summary>행사 종류가 달라도 가능한가요?</summary>
-          <p>돌잔치 · 웨딩 · 어르신 잔치 모두 가능하며, 분위기에 맞게 변형해서 진행합니다.</p>
-        </details>
-
-        <details>
-          <summary>예약은 어떻게 하나요?</summary>
-          <p>전화 또는 카카오톡으로 행사 날짜, 장소, 원하는 스타일을 알려주시면 상담 후 예약을 확정합니다.</p>
-        </details>
-      </div>
-    </section>
-
-    <section id="contact">
-      <div class="section-card">
-        <h2 class="section-title">상담 / 예약</h2>
-        <p class="section-desc">전화는 바로 연결되고, 카카오톡은 ID 복사 후 친구 추가에서 검색하면 됩니다.</p>
-
-        <div class="contact-grid">
-          <div class="card">
-            <h3>연락처</h3>
-            <ul>
-              <li>전화: <span class="price">010-2712-5378</span></li>
-              <li>카카오톡 ID: <span class="price">pinocc2</span></li>
-            </ul>
-
-            <div class="actions" style="margin-top:18px;">
-              <a class="btn primary" href="tel:01027125378">📞 전화 상담</a>
-              <button class="btn" type="button" onclick="copyText('pinocc2')">📋 카톡ID 복사</button>
-              <button class="btn" type="button" onclick="openKakao()">💬 카톡 열기</button>
-            </div>
-          </div>
-
-          <div class="card">
-            <h3>문의 시 알려주면 빠른 내용</h3>
-            <ul>
-              <li>행사 날짜 / 시간</li>
-              <li>장소</li>
-              <li>행사 종류</li>
-              <li>원하는 상차림 종류</li>
-              <li>원하는 톤 / 색감</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <div class="floating">
-    <a class="fab primary" href="tel:01027125378">📞 전화</a>
-    <button class="fab" type="button" onclick="openKakao()">💬 카톡</button>
+    <p class="notice">
+      파티해월 어르신 상차림은 행사 분위기와 공간에 맞춰 정성껏 준비해드립니다.
+    </p>
   </div>
 
-  <div id="toast" class="toast">복사 완료</div>
-
-  <div id="modal" class="modal" aria-hidden="true">
-    <div class="modal-card">
-      <div class="modal-top">
-        <span>사진 크게 보기</span>
-        <button class="modal-close" type="button" onclick="closeModal()">닫기 ✕</button>
-      </div>
-      <img id="modalImg" src="" alt="확대 이미지">
-    </div>
-  </div>
-
-  <footer>
-    © 2026 파티해월 · 출장 상차림 · 돌잔치 · 웨딩 · 어르신 잔치
-  </footer>
+  <div id="toast" class="toast">카카오톡 ID가 복사되었습니다.</div>
 
   <script>
     const toast = document.getElementById('toast');
     let toastTimer = null;
 
-    function showToast(message){
+    function showToast(message) {
       toast.textContent = message;
       toast.classList.add('show');
       clearTimeout(toastTimer);
@@ -750,11 +241,11 @@
       }, 1600);
     }
 
-    async function copyText(text){
-      try{
-        if(navigator.clipboard && window.isSecureContext){
+    async function copyText(text) {
+      try {
+        if (navigator.clipboard && window.isSecureContext) {
           await navigator.clipboard.writeText(text);
-        }else{
+        } else {
           const ta = document.createElement('textarea');
           ta.value = text;
           ta.style.position = 'fixed';
@@ -765,43 +256,16 @@
           document.execCommand('copy');
           ta.remove();
         }
-        showToast('카카오톡 ID 복사됨: ' + text);
-      }catch(e){
-        showToast('복사 실패. ID: ' + text);
+        showToast('카카오톡 ID가 복사되었습니다: ' + text);
+      } catch (e) {
+        showToast('복사 실패. 카카오톡 ID: ' + text);
       }
     }
 
-    async function openKakao(){
+    async function openKakao() {
       await copyText('pinocc2');
       window.location.href = 'kakaotalk://';
     }
-
-    const modal = document.getElementById('modal');
-    const modalImg = document.getElementById('modalImg');
-
-    function openModal(src){
-      modal.classList.add('open');
-      modal.setAttribute('aria-hidden', 'false');
-      modalImg.src = src;
-    }
-
-    function closeModal(){
-      modal.classList.remove('open');
-      modal.setAttribute('aria-hidden', 'true');
-      modalImg.src = '';
-    }
-
-    modal.addEventListener('click', function(e){
-      if(e.target === modal){
-        closeModal();
-      }
-    });
-
-    document.addEventListener('keydown', function(e){
-      if(e.key === 'Escape'){
-        closeModal();
-      }
-    });
   </script>
 </body>
 </html>
